@@ -6,14 +6,18 @@
 <h2>My Todoes</h2>
 
 <div class="form-group">
-    <a href="H" class="btn btn-primary">Create a new Todo</a>
+    <a href="#" class="btn btn-primary">Create a new Todo</a>
+    @Html.ActionLink("Create a new Todo", "Create" , "Todos" ) 
 </div>
 
-<div class="form-group">
-     <input type="text" />
-     <button type="submit" class="btn btn-primary">Search</button>
-</div>
 
+
+<form>
+  <div class="form-group">
+     <input type="text"class="form-control" placeholder="Search todo by name"/>
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
 
 @*<ul>
     <li>Id: @Model.Id</li>
@@ -39,9 +43,9 @@
                 <td>@item.Description</td>
                 <td>@item.DueDate.ToString("d")</td>
                 <td>
-                  <a href="H" class="btn btn-danger">Delete</a>
-                  <a href="H" class="btn btn-success">Edit</a>
-                  <a href="H" class="btn btn-info">Details</a>
+                  <a href="#" class="btn btn-danger">Delete</a>
+                  <a href="#" class="btn btn-success">Edit</a>
+                  <a href="#" class="btn btn-info">Details</a>
                 </td>
             </tr>
         }

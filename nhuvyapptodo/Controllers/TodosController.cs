@@ -1,6 +1,5 @@
 ﻿using nhuvyapptodo.Models;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -14,11 +13,16 @@ namespace nhuvyapptodo.Controllers
         {
             _context = new ApplicationDbContext();
         }
-        // GET: Todos
+        [HttpGet]
         public ActionResult Index()
         {
             var todos = _context.Todos.ToList();
             return View(todos);
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
         }
     }
 }
