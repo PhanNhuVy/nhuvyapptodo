@@ -64,5 +64,17 @@ namespace nhuvyapptodo.Controllers
 
             return View(todoInDb);
         }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var todoInDb = _context.Todos.SingleOrDefault(t => t.Id == id);
+            if (todoInDb == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(todoInDb);
+        }
     }
 }
