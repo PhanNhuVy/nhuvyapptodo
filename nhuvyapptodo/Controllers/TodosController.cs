@@ -26,6 +26,10 @@ namespace nhuvyapptodo.Controllers
         [HttpPost]
         public ActionResult Create(Todo todo)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(todo);
+            }
             var newTodo = new Todo()
             {
                 Description = todo.Description,
