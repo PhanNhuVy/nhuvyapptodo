@@ -22,6 +22,7 @@ namespace nhuvyapptodo.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Create(Todo todo)
         {
@@ -36,8 +37,9 @@ namespace nhuvyapptodo.Controllers
 
             return RedirectToAction("Index", "Todos");
         }
+
         [HttpGet]
-        public ActionResult Delete( int id)
+        public ActionResult Delete(int id)
         {
             var todoInDb = _context.Todos.SingleOrDefault(t => t.Id == id);
             if (todoInDb == null)
@@ -48,8 +50,19 @@ namespace nhuvyapptodo.Controllers
             _context.Todos.Remove(todoInDb);
             _context.SaveChanges();
 
-
             return RedirectToAction("Index", "Todos");
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var todoInDb = _context.Todos.SingleOrDefault(t => t.Id == id);
+            if (todoInDb == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(todoInDb);
         }
     }
 }
